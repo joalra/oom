@@ -10,10 +10,11 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            SoccerPlayer origi = new SoccerPlayer("Divock Origi", "");
+            SoccerPlayer origi = new SoccerPlayer("Divock Origi", "Liverpool U21");
+            origi.Position = "Forward";
+            Console.WriteLine(origi);
             origi.setTeam("Liverpool FC");
             origi.MarketValueM = 9;
-            origi.Position = "Forward";
             Console.WriteLine(origi);
 
         }
