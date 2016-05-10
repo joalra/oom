@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class SoccerPlayer
+    class SoccerPlayer : athlete
     {
         private string name;
         private string team;
         private decimal _MarketValueM;
-        private string _position;
+
+        public string getDescription()
+        {
+            return name + " , SoccerPlayer";
+        }
 
         public SoccerPlayer(string name, string team)
         {
