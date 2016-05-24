@@ -67,7 +67,23 @@ namespace Task2
             {
                 var x = new TennisPlayer("","",0);
             });
+        }
+        /*----------------------------------*/
 
+        /*-------TennisPlayer----------------*/
+        [Test]
+        public void GolfPlayerNameReturnsSameValueUsedForInitialization()
+        {
+            var x = new GolfPlayer("Test Player", "", 0);
+            Assert.IsTrue(x.Name == "Test Player");
+        }
+        [Test]
+        public void CannotCreateGolfPlayerWithEmptyName()
+        {
+            Assert.Catch(() =>
+            {
+                var x = new GolfPlayer("", "", 0);
+            });
         }
         /*----------------------------------*/
     }

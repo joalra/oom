@@ -54,7 +54,7 @@ namespace Task2
 
             string json2 = System.IO.File.ReadAllText("players.json");
     
-            var players2 = JsonConvert.DeserializeObject<athlete[]> (json,settings);
+            var players2 = JsonConvert.DeserializeObject<athlete[]> (json2,settings);
             Console.WriteLine(players2[0].getDescription());
 
             /*-----------*/
