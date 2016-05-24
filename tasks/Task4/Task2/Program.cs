@@ -36,21 +36,26 @@ namespace Task2
             /*-------------*/
 
             /*---Task 4.3 JSON --------*/
-            var golfPlayers = new GolfPlayer[]
+            var players = new athlete[]
             {
                 new GolfPlayer("Tiger Woods", "USA", 1),
                 new GolfPlayer("Jordan Spieth", "NED", 2),
                 new GolfPlayer("Happy Gilmore", "USA", 200),
+                new TennisPlayer("Björn Borg"),
+                new TennisPlayer("Yevgeny Kafelnikov")
             };
 
-            string json = JsonConvert.SerializeObject(golfPlayers, Formatting.Indented);
+            var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
+
+            string json = JsonConvert.SerializeObject(players, settings);
 
             Console.Write(json);
-            System.IO.File.WriteAllText("golf_players.json", json);
+            System.IO.File.WriteAllText("players.json", json);
 
-            string json2 = System.IO.File.ReadAllText("golf_players.json");
-            var golfPlayers2 = JsonConvert.DeserializeObject<GolfPlayer[]> (json);
-            Console.WriteLine(golfPlayers2[0].Name);
+            string json2 = System.IO.File.ReadAllText("players.json");
+    
+            var players2 = JsonConvert.DeserializeObject<GolfPlayer[]> (json);
+            Console.WriteLine(players2[0].Name);
 
             /*-----------*/
         }

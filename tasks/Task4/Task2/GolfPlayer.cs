@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2
 {
-    class GolfPlayer
+    class GolfPlayer : athlete
     {
         public GolfPlayer(string name, string nation, int worldRank)
         {
@@ -17,5 +17,10 @@ namespace Task2
         public string Name { get; set; }
         public string Nation { get; set; }
         public int WorldRank { get; set; }
+
+        public string getDescription()
+        {
+            return Name + ", GolfPlayer";
+        }
     }
 }
