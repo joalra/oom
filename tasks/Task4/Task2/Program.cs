@@ -35,7 +35,7 @@ namespace Task2
             }
             /*-------------*/
 
-            /*---Task 4.3 JSON --------*/
+            /*---Task 4.3 JSON serial--------*/
             var players = new athlete[]
             {
                 new GolfPlayer("Tiger Woods", "USA", 1),
