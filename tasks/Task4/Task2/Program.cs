@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Task2
 {
@@ -27,13 +28,31 @@ namespace Task2
                 new TennisPlayer("Björn Borg"),
                 new TennisPlayer("Yevgeny Kafelnikov")
             };
-            
-            foreach(var a in athletes)
+
+            foreach (var a in athletes)
             {
                 Console.WriteLine(a.getDescription());
             }
             /*-------------*/
 
+            /*---Task 4.3 JSON --------*/
+            var golfPlayers = new GolfPlayer[]
+            {
+                new GolfPlayer("Tiger Woods", "USA", 1),
+                new GolfPlayer("Jordan Spieth", "NED", 2),
+                new GolfPlayer("Happy Gilmore", "USA", 200),
+            };
+
+            string json = JsonConvert.SerializeObject(golfPlayers, Formatting.Indented);
+
+            Console.Write(json);
+            System.IO.File.WriteAllText("golf_players.json", json);
+
+            string json2 = System.IO.File.ReadAllText("golf_players.json");
+            var golfPlayers2 = JsonConvert.DeserializeObject<GolfPlayer[]> (json);
+            Console.WriteLine(golfPlayers2[0].Name);
+
+            /*-----------*/
         }
     }
 }
