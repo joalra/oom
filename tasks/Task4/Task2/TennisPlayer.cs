@@ -12,16 +12,12 @@ namespace Task2
 
         public TennisPlayer(string name, string nation, int worldRank)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new Exception("emty name");
+
             Name = name;
             Nation = nation;
             WorldRank = worldRank;
-        }
-
-        public TennisPlayer(string name)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new Exception("emty name");
-            this.name = name;
         }
 
         public string Name { get; set; }

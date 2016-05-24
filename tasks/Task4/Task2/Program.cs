@@ -25,8 +25,8 @@ namespace Task2
             {
                 new SoccerPlayer("Gilbert Prilassnig", "SK Sturm Graz"),
                 new SoccerPlayer("Dieter Ramusch", "GAK"),
-                new TennisPlayer("Björn Borg"),
-                new TennisPlayer("Yevgeny Kafelnikov")
+                new TennisPlayer("Björn Borg","",1),
+                new TennisPlayer("Yevgeny Kafelnikov","",1)
             };
 
             foreach (var a in athletes)
@@ -41,8 +41,8 @@ namespace Task2
                 new GolfPlayer("Tiger Woods", "USA", 1),
                 new GolfPlayer("Jordan Spieth", "NED", 2),
                 new GolfPlayer("Happy Gilmore", "USA", 200),
-                new TennisPlayer("Björn Borg"),
-                new TennisPlayer("Yevgeny Kafelnikov")
+                new TennisPlayer("Björn Borg","",1),
+                new TennisPlayer("Yevgeny Kafelnikov","",1)
             };
 
             var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
@@ -54,8 +54,8 @@ namespace Task2
 
             string json2 = System.IO.File.ReadAllText("players.json");
     
-            var players2 = JsonConvert.DeserializeObject<GolfPlayer[]> (json);
-            Console.WriteLine(players2[0].Name);
+            var players2 = JsonConvert.DeserializeObject<athlete[]> (json,settings);
+            Console.WriteLine(players2[0].getDescription());
 
             /*-----------*/
         }

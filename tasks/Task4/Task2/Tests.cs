@@ -57,23 +57,17 @@ namespace Task2
         [Test]
         public void TennisPlayerNameReturnsSameValueUsedForInitialization()
         {
-            var x = new TennisPlayer("Test Player");
-            Assert.IsTrue(x.getName() == "Test Player");
+            var x = new TennisPlayer("Test Player","",0);
+            Assert.IsTrue(x.Name == "Test Player");
         }
         [Test]
         public void CannotCreateTennisPlayerWithEmptyName()
         {
             Assert.Catch(() =>
             {
-                var x = new TennisPlayer("");
+                var x = new TennisPlayer("","",0);
             });
 
-        }
-        [Test]
-        public void TennisPlayerDescriptionIsCorrect()
-        {
-            var x = new TennisPlayer("Test Player");
-            Assert.IsTrue(x.getDescription() == "Test Player, TennisPlayer");
         }
         /*----------------------------------*/
     }
