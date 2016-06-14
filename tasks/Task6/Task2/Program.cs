@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Threading;
+
 
 namespace Task2
 {
@@ -58,6 +60,31 @@ namespace Task2
             Console.WriteLine(players2[0].getDescription());
 
             /*-----------*/
+
+            /*----Task6.2--Experiment with tasks--*/
+            Task<int> callback = Task.Run(() =>
+            {
+                Thread.Sleep(2000);
+                return 42;
+            });
+
+            //Console.WriteLine(futureInt.Result); //blockierend
+
+            var f2 = callback.ContinueWith(x => Console.WriteLine("callback executed: " + x.Result));
+
+            var cnt = 0;
+            while (cnt++ < 6)
+            {
+                Console.WriteLine("do something else...");
+                Thread.Sleep(500);
+            }
+            /*-------------- */
+
+            /*----Task 6.1--Pushing/Subscribe with query---*/
+            Console.WriteLine();
+            pushWithSubject.Run();
+            /*------------*/
+
         }
     }
 }

@@ -10,6 +10,9 @@ namespace Task2
     {
         public GolfPlayer(string name, string nation, int worldRank)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new Exception("emty name");
+
             Name = name;
             Nation = nation;
             WorldRank = worldRank;
